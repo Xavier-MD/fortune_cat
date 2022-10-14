@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fortune_cat/ui/pages/home_page.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,35 +11,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fortune Cat',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Fortune Cat'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        
-      ),
+    return ResponsiveSizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp(
+          title: 'Fortune Cat',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const HomePage(),
+        );
+      },
     );
   }
 }
