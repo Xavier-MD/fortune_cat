@@ -22,18 +22,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/cats/cat_body_1.png
-    - assets/images/cats/cat_body_2.png
-    - assets/images/cats/cat_body_3.png
-    - assets/images/cats/cat_body_4.png
-
-    - assets/images/accessories/glasses/glasses_1.png
-    - assets/images/accessories/glasses/glasses_2.png
-
-    - assets/images/accessories/hats/hat_1.png
-
-    - assets/images/accessories/paws/paws_1.png
-    - assets/images/accessories/paws/paws_2.png
-    - assets/images/accessories/paws/paws_3.png
-    
-    - assets/images/accessories/ties/bowtie_1.png
+    - assets/images/cats/applebottom.png
+    - assets/images/cats/kai.png
+    - assets/images/cats/kingen.png
+    - assets/images/cats/mrs_grubsly.png
+    - assets/images/cats/nigel.png
