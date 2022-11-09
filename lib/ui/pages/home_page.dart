@@ -35,7 +35,19 @@ class _HomePageState extends State<HomePage> {
                 Image(
                   width: 80.0.w,
                   fit: BoxFit.fitWidth,
-                  image: const AssetImage('assets/images/cats/applebottom.png'),
+                  image: const AssetImage('assets/images/cats/nigel.png'),
+                ),
+                Image(
+                  width: 80.0.w,
+                  fit: BoxFit.fitWidth,
+                  image: const AssetImage(
+                      'assets/images/accessories/eyes/sunglasses_1.png'),
+                ),
+                Image(
+                  width: 80.0.w,
+                  fit: BoxFit.fitWidth,
+                  image: const AssetImage(
+                      'assets/images/accessories/paws/book_1.png'),
                 ),
               ],
             ),
