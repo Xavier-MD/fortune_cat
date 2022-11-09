@@ -30,6 +30,16 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Stack(
+              children: [
+                Image(
+                  width: 80.0.w,
+                  fit: BoxFit.fitWidth,
+                  image: const AssetImage('assets/images/cats/applebottom.png'),
+                ),
+              ],
+            ),
+            SizedBox(height: 5.0.h),
             Container(
               width: 80.0.w,
               height: 20.0.h,

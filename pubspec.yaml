@@ -27,3 +27,8 @@ flutter:
     - assets/images/cats/kingen.png
     - assets/images/cats/mrs_grubsly.png
     - assets/images/cats/nigel.png
+
+    - assets/images/accessories/eyes/glasses_1.png
+    - assets/images/accessories/eyes/sunglasses_1.png
+
+    - assets/images/accessories/paws/book_1.png
