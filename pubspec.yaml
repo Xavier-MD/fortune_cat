@@ -25,4 +25,6 @@ flutter:
   assets:
     - assets/images/cats/
     - assets/images/accessories/eyes/
+    - assets/images/accessories/head/
     - assets/images/accessories/paws/
+    - assets/images/accessories/vibes/
