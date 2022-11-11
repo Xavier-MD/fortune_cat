@@ -51,6 +51,17 @@ Map _assetObjectCreator(String name, String imagePath, Rarity rarity) {
 }
 
 class AssetLists {
+  static List<Map> backgroundList = [
+    _assetObjectCreator('Blank Background',
+        'assets/images/backgrounds/blank_background.png', Rarity.common),
+    _assetObjectCreator('Blue Background',
+        'assets/images/backgrounds/blue_background.png', Rarity.common),
+    _assetObjectCreator('Coral Background',
+        'assets/images/backgrounds/coral_background.png', Rarity.common),
+    _assetObjectCreator('Pink Background',
+        'assets/images/backgrounds/pink_background.png', Rarity.common),
+  ];
+
   static List<Map> catList = [
     _assetObjectCreator(
         'Applebottom', 'assets/images/cats/applebottom.png', Rarity.uncommon),
@@ -75,10 +86,8 @@ class AssetLists {
   ];
 
   static List<Map> eyeList = [
-    _assetObjectCreator(
-        'Blank',
-        'assets/images/accessories/vibes/blank_background.png',
-        Rarity.ordinary),
+    _assetObjectCreator('Blank Eyes',
+        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
     _assetObjectCreator('Glasses 1',
         'assets/images/accessories/eyes/glasses_1.png', Rarity.common),
     _assetObjectCreator('Monocle 1',
@@ -88,17 +97,13 @@ class AssetLists {
   ];
 
   static List<Map> headList = [
-    _assetObjectCreator(
-        'Blank',
-        'assets/images/accessories/vibes/blank_background.png',
-        Rarity.ordinary),
+    _assetObjectCreator('Blank Head',
+        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
   ];
 
   static List<Map> pawList = [
-    _assetObjectCreator(
-        'Blank',
-        'assets/images/accessories/vibes/blank_background.png',
-        Rarity.ordinary),
+    _assetObjectCreator('Blank Paws',
+        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
     _assetObjectCreator(
         'Book 1', 'assets/images/accessories/paws/book_1.png', Rarity.common),
     _assetObjectCreator('Drink 1', 'assets/images/accessories/paws/drink_1.png',
@@ -110,10 +115,8 @@ class AssetLists {
   ];
 
   static List<Map> vibeList = [
-    _assetObjectCreator(
-        'Blank',
-        'assets/images/accessories/vibes/blank_background.png',
-        Rarity.ordinary),
+    _assetObjectCreator('Blank Vibe',
+        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
     _assetObjectCreator('Leaves 1',
         'assets/images/accessories/vibes/leaves_1.png', Rarity.uncommon),
     _assetObjectCreator(

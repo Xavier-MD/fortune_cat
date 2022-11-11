@@ -20,6 +20,8 @@ Map assetSelector(assetList) {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    late String selectedBackground =
+        assetSelector(AssetLists.backgroundList)['imagePath'];
     late String selectedCat = assetSelector(AssetLists.catList)['imagePath'];
     late String selectedEyeAccessory =
         assetSelector(AssetLists.eyeList)['imagePath'];
@@ -31,8 +33,19 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fortune Cat'),
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const HomePage()),
+                (Route<dynamic> route) => false,
+              );
+            },
+            icon: const Icon(Icons.refresh),
+          ),
           IconButton(
             onPressed: () => {},
             icon: const Icon(Icons.refresh_rounded),
@@ -44,48 +57,59 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            Stack(
+            Image(
+              width: 100.0.w,
+              height: 100.0.h,
+              fit: BoxFit.fill,
+              image: AssetImage(selectedBackground),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(
-                  width: 80.0.w,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage(selectedVibe),
+                Stack(
+                  children: [
+                    Image(
+                      width: 80.0.w,
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage(selectedVibe),
+                    ),
+                    Image(
+                      width: 80.0.w,
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage(selectedCat),
+                    ),
+                    Image(
+                      width: 80.0.w,
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage(selectedEyeAccessory),
+                    ),
+                    Image(
+                      width: 80.0.w,
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage(selectedHeadAccessory),
+                    ),
+                    Image(
+                      width: 80.0.w,
+                      fit: BoxFit.fitWidth,
+                      image: AssetImage(selectedPawAccessory),
+                    ),
+                  ],
                 ),
-                Image(
+                SizedBox(height: 5.0.h),
+                Container(
                   width: 80.0.w,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage(selectedCat),
-                ),
-                Image(
-                  width: 80.0.w,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage(selectedEyeAccessory),
-                ),
-                Image(
-                  width: 80.0.w,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage(selectedHeadAccessory),
-                ),
-                Image(
-                  width: 80.0.w,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage(selectedPawAccessory),
+                  height: 20.0.h,
+                  padding: EdgeInsets.all(2.0.h),
+                  child: const Text(
+                    'Cat man occasionally partakes in the cat dance.',
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
-            ),
-            SizedBox(height: 5.0.h),
-            Container(
-              width: 80.0.w,
-              height: 20.0.h,
-              padding: EdgeInsets.all(2.0.h),
-              child: const Text(
-                'Cat man occasionally partakes in the cat dance.',
-                textAlign: TextAlign.center,
-              ),
             ),
           ],
         ),
