@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fortune_cat/logic/asset_functions.dart';
+import 'package:fortune_cat/models/asset_lists.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,9 +10,25 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+Map assetSelector(assetList) {
+  double randomNumber = AssetFunctions.randomNumberGenerator(assetList);
+  Map selectedAsset =
+      AssetFunctions.assetSelectorRecursion(randomNumber, assetList, 0);
+  return selectedAsset;
+}
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    late String selectedCat = assetSelector(AssetLists.catList)['imagePath'];
+    late String selectedEyeAccessory =
+        assetSelector(AssetLists.eyeList)['imagePath'];
+    late String selectedHeadAccessory =
+        assetSelector(AssetLists.headList)['imagePath'];
+    late String selectedPawAccessory =
+        assetSelector(AssetLists.pawList)['imagePath'];
+    late String selectedVibe = assetSelector(AssetLists.vibeList)['imagePath'];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Fortune Cat'),
@@ -35,19 +53,27 @@ class _HomePageState extends State<HomePage> {
                 Image(
                   width: 80.0.w,
                   fit: BoxFit.fitWidth,
-                  image: const AssetImage('assets/images/cats/nigel.png'),
+                  image: AssetImage(selectedVibe),
                 ),
                 Image(
                   width: 80.0.w,
                   fit: BoxFit.fitWidth,
-                  image: const AssetImage(
-                      'assets/images/accessories/eyes/sunglasses_1.png'),
+                  image: AssetImage(selectedCat),
                 ),
                 Image(
                   width: 80.0.w,
                   fit: BoxFit.fitWidth,
-                  image: const AssetImage(
-                      'assets/images/accessories/paws/book_1.png'),
+                  image: AssetImage(selectedEyeAccessory),
+                ),
+                Image(
+                  width: 80.0.w,
+                  fit: BoxFit.fitWidth,
+                  image: AssetImage(selectedHeadAccessory),
+                ),
+                Image(
+                  width: 80.0.w,
+                  fit: BoxFit.fitWidth,
+                  image: AssetImage(selectedPawAccessory),
                 ),
               ],
             ),
