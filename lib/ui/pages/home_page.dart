@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:fortune_cat/logic/asset_functions.dart';
 import 'package:fortune_cat/models/asset_lists.dart';
+import 'package:fortune_cat/models/text_lists.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,6 +20,13 @@ Map assetSelector(assetList) {
   return selectedAsset;
 }
 
+String quoteSelector(quoteList) {
+  Random random = Random();
+  int randomNumber = random.nextInt(quoteList.length);
+
+  return quoteList[randomNumber];
+}
+
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -31,16 +41,17 @@ class _HomePageState extends State<HomePage> {
         assetSelector(AssetLists.pawList)['imagePath'];
     late String selectedVibe = assetSelector(AssetLists.vibeList)['imagePath'];
 
+    late String selectedQuote = quoteSelector(TextLists.quoteList);
+
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Fortune Cat'),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const HomePage()),
+                MaterialPageRoute(builder: (context) => const HomePage()),
                 (Route<dynamic> route) => false,
               );
             },
@@ -104,9 +115,10 @@ class _HomePageState extends State<HomePage> {
                   width: 80.0.w,
                   height: 20.0.h,
                   padding: EdgeInsets.all(2.0.h),
-                  child: const Text(
-                    'Cat man occasionally partakes in the cat dance.',
+                  child: Text(
+                    selectedQuote,
                     textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 17.0.sp, fontWeight: FontWeight.w600),
                   ),
                 ),
               ],
