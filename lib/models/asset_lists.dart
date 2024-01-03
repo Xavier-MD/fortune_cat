@@ -1,3 +1,12 @@
+class Asset {
+  final String name;
+  final String imagePath;
+  final double probability;
+
+  Asset(
+      {required this.name, required this.imagePath, required this.probability});
+}
+
 enum Rarity {
   ordinary,
   common,
@@ -7,123 +16,113 @@ enum Rarity {
   fabled,
 }
 
-Map _assetObjectCreator(String name, String imagePath, Rarity rarity) {
+Asset assetObjectCreator(String name, String imagePath, Rarity rarity) {
   double probability;
 
   switch (rarity) {
     case Rarity.ordinary:
-      {
-        probability = 0.50;
-      }
+      probability = 0.50;
       break;
     case Rarity.common:
-      {
-        probability = 0.35;
-      }
+      probability = 0.35;
       break;
     case Rarity.uncommon:
-      {
-        probability = 0.17;
-      }
+      probability = 0.17;
       break;
     case Rarity.rare:
-      {
-        probability = 0.10;
-      }
+      probability = 0.10;
       break;
     case Rarity.unique:
-      {
-        probability = 0.05;
-      }
+      probability = 0.05;
       break;
     case Rarity.fabled:
-      {
-        probability = 0.02;
-      }
+      probability = 0.02;
       break;
   }
 
-  return {
-    'name': name,
-    'imagePath': imagePath,
-    'probability': probability,
-  };
+  return Asset(name: name, imagePath: imagePath, probability: probability);
 }
 
 class AssetLists {
-  static List<Map> backgroundList = [
-    _assetObjectCreator('Blank Background',
+  static List<Asset> backgroundList = [
+    assetObjectCreator('Blank Background',
         'assets/images/backgrounds/blank_background.png', Rarity.common),
-    _assetObjectCreator('Blue Background',
+    assetObjectCreator('Blue Background',
         'assets/images/backgrounds/blue_background.png', Rarity.common),
-    _assetObjectCreator('Coral Background',
+    assetObjectCreator('Coral Background',
         'assets/images/backgrounds/coral_background.png', Rarity.common),
-    _assetObjectCreator('Pink Background',
+    assetObjectCreator('Pink Background',
         'assets/images/backgrounds/pink_background.png', Rarity.common),
+    // Add more backgrounds as needed
   ];
 
-  static List<Map> catList = [
-    _assetObjectCreator(
+  static List<Asset> catList = [
+    assetObjectCreator(
         'Applebottom', 'assets/images/cats/applebottom.png', Rarity.uncommon),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Butter', 'assets/images/cats/butter.png', Rarity.common),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Gumayusi', 'assets/images/cats/gumayusi.png', Rarity.rare),
-    _assetObjectCreator('Kahve', 'assets/images/cats/kahve.png', Rarity.unique),
-    _assetObjectCreator('Kai', 'assets/images/cats/kai.png', Rarity.common),
-    _assetObjectCreator(
+    assetObjectCreator('Kahve', 'assets/images/cats/kahve.png', Rarity.unique),
+    assetObjectCreator('Kai', 'assets/images/cats/kai.png', Rarity.common),
+    assetObjectCreator(
         'Keria', 'assets/images/cats/keria.png', Rarity.uncommon),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Kingen', 'assets/images/cats/kingen.png', Rarity.fabled),
-    _assetObjectCreator('Mouse', 'assets/images/cats/mouse.png', Rarity.rare),
-    _assetObjectCreator(
+    assetObjectCreator('Mouse', 'assets/images/cats/mouse.png', Rarity.rare),
+    assetObjectCreator(
         'Mrs. Grubsly', 'assets/images/cats/mrs_grubsly.png', Rarity.rare),
-    _assetObjectCreator('Nigel', 'assets/images/cats/nigel.png', Rarity.common),
-    _assetObjectCreator(
+    assetObjectCreator('Nigel', 'assets/images/cats/nigel.png', Rarity.common),
+    assetObjectCreator(
         'Poor Alexander', 'assets/images/cats/poor_alexander.png', Rarity.rare),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Van Winkle', 'assets/images/cats/van_winkle.png', Rarity.unique),
+    // Add more cats as needed
   ];
 
-  static List<Map> eyeList = [
-    _assetObjectCreator('Blank Eyes',
+  static List<Asset> eyeList = [
+    assetObjectCreator('Blank Eyes',
         'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
-    _assetObjectCreator('Glasses 1',
+    assetObjectCreator('Glasses 1',
         'assets/images/accessories/eyes/glasses_1.png', Rarity.common),
-    _assetObjectCreator('Monocle 1',
+    assetObjectCreator('Monocle 1',
         'assets/images/accessories/eyes/monocle_1.png', Rarity.rare),
-    _assetObjectCreator('Sunglasses 1',
+    assetObjectCreator('Sunglasses 1',
         'assets/images/accessories/eyes/sunglasses_1.png', Rarity.uncommon),
+    // Add more eye accessories as needed
   ];
 
-  static List<Map> headList = [
-    _assetObjectCreator('Blank Head',
-        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
+  static List<Asset> headList = [
+    assetObjectCreator(
+        'Blank Head', 'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
+    // Add more head accessories as needed
   ];
 
-  static List<Map> pawList = [
-    _assetObjectCreator('Blank Paws',
-        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
-    _assetObjectCreator(
+  static List<Asset> pawList = [
+    assetObjectCreator(
+        'Blank Paws', 'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
+    assetObjectCreator(
         'Book 1', 'assets/images/accessories/paws/book_1.png', Rarity.common),
-    _assetObjectCreator('Drink 1', 'assets/images/accessories/paws/drink_1.png',
+    assetObjectCreator('Drink 1', 'assets/images/accessories/paws/drink_1.png',
         Rarity.uncommon),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Food 1', 'assets/images/accessories/paws/food_1.png', Rarity.common),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Food 2', 'assets/images/accessories/paws/food_2.png', Rarity.rare),
+    // Add more paw accessories as needed
   ];
 
-  static List<Map> vibeList = [
-    _assetObjectCreator('Blank Vibe',
-        'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
-    _assetObjectCreator('Leaves 1',
+  static List<Asset> vibeList = [
+    assetObjectCreator(
+        'Blank Vibe', 'assets/images/backgrounds/blank_background.png', Rarity.ordinary),
+    assetObjectCreator('Leaves 1',
         'assets/images/accessories/vibes/leaves_1.png', Rarity.uncommon),
-    _assetObjectCreator(
+    assetObjectCreator(
         'Rain 1', 'assets/images/accessories/vibes/rain_1.png', Rarity.rare),
-    _assetObjectCreator('Rainbow 1',
+    assetObjectCreator('Rainbow 1',
         'assets/images/accessories/vibes/rainbow_1.png', Rarity.fabled),
-    _assetObjectCreator('Sparkles 1',
+    assetObjectCreator('Sparkles 1',
         'assets/images/accessories/vibes/sparkles_1.png', Rarity.unique),
+    // Add more vibes as needed
   ];
 }

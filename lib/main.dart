@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return MaterialApp(
           title: 'Fortune Cat',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+          theme: ThemeData(),
           home: const HomePage(),
         );
       },

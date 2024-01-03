@@ -79,17 +79,53 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            colors: [
-              Color.fromARGB(255, 155, 129, 34), // darker shade for vignette effect
-              Color(0xfffff8ed), // your background color
-            ],
-            stops: [0.5, 1],
-            center: Alignment.center,
-            radius: 1,
+      appBar: AppBar(
+        title: const Text('Fortune Cat'),
+        actions: [
+          IconButton(
+            onPressed: refreshCatCombination,
+            icon: const Icon(Icons.refresh_rounded),
           ),
+        ],
+      ),
+      body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image(
+              width: 100.0.w,
+              height: 100.0.h,
+              fit: BoxFit.fill,
+              image: AssetImage(selectedBackground),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Stack(
+                  children: [
+                    catAssetLayer(selectedVibe),
+                    catAssetLayer(selectedCat),
+                    catAssetLayer(selectedEyeAccessory),
+                    catAssetLayer(selectedHeadAccessory),
+                    catAssetLayer(selectedPawAccessory),
+                  ],
+                ),
+                SizedBox(height: 5.0.h),
+                Container(
+                  width: 80.0.w,
+                  height: 20.0.h,
+                  padding: EdgeInsets.all(2.0.h),
+                  child: Text(
+                    selectedQuote,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 17.0.sp, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
