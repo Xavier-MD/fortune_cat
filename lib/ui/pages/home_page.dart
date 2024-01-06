@@ -79,19 +79,39 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: RadialGradient(
-            colors: [
-              Color.fromARGB(255, 155, 129, 34), // darker shade for vignette effect
-              Color(0xfffff8ed), // your background color
-            ],
-            stops: [0.5, 1],
-            center: Alignment.center,
-            radius: 1,
-          ),
-        ),
-      ),
+      body: VignetteBackground(),
     );
   }
 }
+
+class VignetteBackgroundPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    final Gradient gradient = RadialGradient(
+      center: Alignment.center,
+      radius: 0.5,
+      colors: [Colors.transparent, Colors.black],
+      stops: [0.5, 1.0],
+    );
+
+    canvas.drawRect(
+      rect,
+      Paint()..shader = gradient.createShader(rect),
+    );
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
+class VignetteBackground extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: VignetteBackgroundPainter(),
+      child: Container(), // Your main content goes here
+    );
+  }
+}
+
