@@ -79,39 +79,46 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: VignetteBackground(),
+      appBar: AppBar(
+        title: const Text('Fortune Cat'),
+        titleTextStyle: TextStyle(
+          color: Colors.black,
+        ),
+        toolbarHeight: 15.0.h,
+        backgroundColor: const Color(0xFFfef8e8),
+      ),
+      body: SafeArea(
+        child: Flex(
+          direction: Axis.vertical,
+          children: [
+            Flexible(
+              flex: 7,
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
+            Flexible(
+              flex: 4,
+              child: Container(
+                color: Colors.blue,
+              ),
+            ),
+            Flexible(
+              flex: 2,
+              child: Container(
+                color: Colors.yellow,
+              ),
+            ),
+            Flexible(
+              flex: 2,
+              child: Container(
+                color: Colors.pink,
+              ),
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Color(0xFFfef8e8),
     );
   }
 }
-
-class VignetteBackgroundPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    final Gradient gradient = RadialGradient(
-      center: Alignment.center,
-      radius: 0.5,
-      colors: [Colors.transparent, Colors.black],
-      stops: [0.5, 1.0],
-    );
-
-    canvas.drawRect(
-      rect,
-      Paint()..shader = gradient.createShader(rect),
-    );
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-}
-
-class VignetteBackground extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: VignetteBackgroundPainter(),
-      child: Container(), // Your main content goes here
-    );
-  }
-}
-
