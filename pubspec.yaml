@@ -30,5 +30,6 @@ flutter:
     - assets/images/accessories/head/
     - assets/images/accessories/paws/
     - assets/images/accessories/vibes/
-    - assets/vectors/icons/
     - assets/vectors/decor/
+    - assets/vectors/icons/
+    - assets/vectors/text/
