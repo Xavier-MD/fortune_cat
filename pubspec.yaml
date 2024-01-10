@@ -34,3 +34,9 @@ flutter:
     - assets/vectors/decor/
     - assets/vectors/icons/
     - assets/vectors/text/
+  fonts:
+    - family: Caveat
+      fonts:
+        - asset: assets/fonts/Caveat-Regular.ttf
+        - asset: assets/fonts/Caveat-Bold.ttf
+          weight: 700

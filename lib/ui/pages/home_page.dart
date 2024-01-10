@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
           boxShadow: [
             BoxShadow(
               offset: const Offset(1, 2),
-              blurRadius: 20,
+              blurRadius: 15.0.w,
               spreadRadius: 3.0.w,
               color: const Color.fromARGB(255, 212, 201, 180),
               inset: true,
@@ -162,6 +162,10 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           selectedQuote,
                           textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Caveat',
+                            fontSize: 21.0.sp,
+                          ),
                         ),
                       ),
                       const Spacer(),
