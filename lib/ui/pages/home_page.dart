@@ -1,6 +1,7 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
+import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
 import 'package:fortune_cat/models/asset_lists.dart';
 import 'package:fortune_cat/models/text_lists.dart';
 import 'package:fortune_cat/ui/components/fc_svg.dart';
@@ -79,136 +80,126 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        minimum: EdgeInsets.fromLTRB(5.0.w, 8.0.w, 5.0.w, 0),
-        child: Flex(
-          direction: Axis.vertical,
-          children: [
-            // Cat Picture Section
-            Flexible(
-              flex: 7,
-              child: Column(
-                children: [
-                  Flexible(
-                    flex: 2,
-                    fit: FlexFit.tight,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FcSvg(
-                          assetName: 'assets/vectors/icons/tarot_icon.svg',
-                          width: 10.0.w,
-                          color: Colors.black,
-                        ),
-                        FcSvg(
-                          assetName: 'assets/vectors/text/home_text.svg',
-                          width: 40.0.w,
-                          color: Colors.black,
-                        ),
-                        FcSvg(
-                          assetName: 'assets/vectors/icons/settings_icon.svg',
-                          width: 10.0.w,
-                          color: Colors.black,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Spacer(
-                    flex: 1,
-                  ),
-                  Flexible(
-                    flex: 10,
-                    child: Stack(
-                      children: [
-                        catAssetLayer(selectedVibe),
-                        catAssetLayer(selectedCat),
-                        catAssetLayer(selectedEyeAccessory),
-                        catAssetLayer(selectedHeadAccessory),
-                        catAssetLayer(selectedPawAccessory),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // Fortune Quote Section
-            Flexible(
-              flex: 3,
-              child: SizedBox(
-                width: 80.0.w,
-                child: Column(
-                  children: [
-                    FcSvg(
-                        assetName:
-                            'assets/vectors/decor/quote_upper_bracket.svg'),
-                    const Spacer(),
-                    SizedBox(
-                      width: 70.0.w,
-                      child: Text(
-                        selectedQuote,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const Spacer(),
-                    FcSvg(
-                        assetName:
-                            'assets/vectors/decor/quote_lower_bracket.svg'),
-                  ],
-                ),
-              ),
-            ),
-
-            // Third Section
-            Flexible(
-              flex: 2,
-              fit: FlexFit.tight,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  FcSvg(
-                    assetName: 'assets/vectors/icons/cat_icon.svg',
-                    width: 10.0.w,
-                    color: Colors.black,
-                  ),
-                  Chip(
-                    label: Text('writing'),
-                  ),
-                  FcSvg(
-                    assetName: 'assets/vectors/icons/tarot_icon.svg',
-                    width: 10.0.w,
-                    color: Colors.black,
-                  ),
-                ],
-              ),
-            ),
-
-            // Fourth Section
-            Flexible(
-              flex: 2,
-              fit: FlexFit.tight,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ElevatedButton(
-                    onPressed: (() => {}),
-                    child: Text('1'),
-                  ),
-                  ElevatedButton(
-                    onPressed: (() => {}),
-                    child: Text('2'),
-                  ),
-                  ElevatedButton(
-                    onPressed: (() => {}),
-                    child: Text('3'),
-                  ),
-                ],
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: const Color(0xFFfff8ef),
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(1, 2),
+              blurRadius: 20,
+              spreadRadius: 3.0.w,
+              color: const Color.fromARGB(255, 212, 201, 180),
+              inset: true,
             ),
           ],
         ),
+        child: SafeArea(
+          minimum: EdgeInsets.fromLTRB(5.0.w, 5.0.h, 5.0.w, 0),
+          child: Flex(
+            direction: Axis.vertical,
+            children: [
+              // Cat Picture Section
+              Flexible(
+                flex: 7,
+                child: Column(
+                  children: [
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.tight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          FcSvg(
+                            assetName: 'assets/vectors/icons/tarot_icon.svg',
+                            width: 10.0.w,
+                            color: Colors.black,
+                          ),
+                          FcSvg(
+                            assetName: 'assets/vectors/text/home_text.svg',
+                            width: 40.0.w,
+                            color: Colors.black,
+                          ),
+                          FcSvg(
+                            assetName: 'assets/vectors/icons/settings_icon.svg',
+                            width: 10.0.w,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Flexible(
+                      flex: 10,
+                      child: Stack(
+                        children: [
+                          catAssetLayer(selectedVibe),
+                          catAssetLayer(selectedCat),
+                          catAssetLayer(selectedEyeAccessory),
+                          catAssetLayer(selectedHeadAccessory),
+                          catAssetLayer(selectedPawAccessory),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // Fortune Quote Section
+              Flexible(
+                flex: 3,
+                child: SizedBox(
+                  width: 80.0.w,
+                  child: Column(
+                    children: [
+                      FcSvg(
+                          assetName:
+                              'assets/vectors/decor/quote_upper_bracket.svg'),
+                      const Spacer(),
+                      SizedBox(
+                        width: 70.0.w,
+                        child: Text(
+                          selectedQuote,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const Spacer(),
+                      FcSvg(
+                          assetName:
+                              'assets/vectors/decor/quote_lower_bracket.svg'),
+                    ],
+                  ),
+                ),
+              ),
+
+              // Third Section
+              Flexible(
+                flex: 2,
+                fit: FlexFit.tight,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FcSvg(
+                      assetName: 'assets/vectors/icons/cat_icon.svg',
+                      width: 10.0.w,
+                      color: Colors.black,
+                    ),
+                    Chip(
+                      label: Text('writing'),
+                    ),
+                    FcSvg(
+                      assetName: 'assets/vectors/icons/tarot_icon.svg',
+                      width: 10.0.w,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-      backgroundColor: const Color(0xFFfef8e8),
     );
   }
 }
