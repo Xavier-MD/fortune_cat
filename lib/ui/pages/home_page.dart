@@ -152,11 +152,11 @@ class _HomePageState extends State<HomePage> {
                 child: SizedBox(
                   width: 80.0.w,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       FcSvg(
                           assetName:
                               'assets/vectors/decor/quote_upper_bracket.svg'),
-                      const Spacer(),
                       SizedBox(
                         width: 70.0.w,
                         child: Text(
@@ -168,7 +168,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      const Spacer(),
                       FcSvg(
                           assetName:
                               'assets/vectors/decor/quote_lower_bracket.svg'),
