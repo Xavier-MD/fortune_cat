@@ -15,25 +15,46 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final Random random = Random();
-
-  late Asset backgroundAsset;
-  late Asset catAsset;
-  late Asset eyeAccessory;
-  late Asset headAccessory;
-  late Asset pawAccessory;
-  late Asset vibe;
+  late String selectedBackground;
+  late String selectedCat;
+  late String selectedEyeAccessory;
+  late String selectedHeadAccessory;
+  late String selectedPawAccessory;
+  late String selectedVibe;
   late String selectedQuote;
 
+  T selectRandom<T>(List<T> list) {
+    int randomNumber = random.nextInt(list.length);
+    return list[randomNumber];
+  }
+
   void initializeAssets() {
-    Asset backgroundAsset =
-        selectRandomListItem(AssetLists.backgroundList, random);
-    Asset catAsset = selectRandomListItem(AssetLists.catList, random);
-    Asset eyeAccessoryAsset = selectRandomListItem(AssetLists.eyeList, random);
-    Asset headAccessoryAsset =
-        selectRandomListItem(AssetLists.headList, random);
-    Asset pawAccessoryAsset = selectRandomListItem(AssetLists.pawList, random);
-    Asset vibeAsset = selectRandomListItem(AssetLists.vibeList, random);
-    String selectedQuote = selectRandomListItem(TextLists.quoteList, random);
+    // Selecting a random background asset
+    Asset backgroundAsset = selectRandom(AssetLists.backgroundList);
+    selectedBackground = backgroundAsset.imagePath;
+
+    // Selecting a random cat asset
+    Asset catAsset = selectRandom(AssetLists.catList);
+    selectedCat = catAsset.imagePath;
+
+    // Selecting a random eye accessory
+    Asset eyeAccessory = selectRandom(AssetLists.eyeList);
+    selectedEyeAccessory = eyeAccessory.imagePath;
+
+    // Selecting a random head accessory
+    Asset headAccessory = selectRandom(AssetLists.headList);
+    selectedHeadAccessory = headAccessory.imagePath;
+
+    // Selecting a random paw accessory
+    Asset pawAccessory = selectRandom(AssetLists.pawList);
+    selectedPawAccessory = pawAccessory.imagePath;
+
+    // Selecting a random vibe
+    Asset vibe = selectRandom(AssetLists.vibeList);
+    selectedVibe = vibe.imagePath;
+
+    // Selecting a random quote
+    selectedQuote = selectRandom(TextLists.quoteList);
   }
 
   void refreshAssets() {
@@ -70,6 +91,12 @@ class _HomePageState extends State<HomePage> {
                   FcSvg(
                       assetName:
                           'assets/vectors/decor/quote_upper_bracket.svg'),
+                  const Spacer(),
+                  Text(selectedQuote),
+                  const Spacer(),
+                  FcSvg(
+                      assetName:
+                          'assets/vectors/decor/quote_lower_bracket.svg'),
                 ],
               ),
             ),
