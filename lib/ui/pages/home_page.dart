@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black,
                     ),
                     Chip(
-                      label: Text('writing'),
+                      label: Text('Home'),
                     ),
                     FcSvg(
                       assetName: 'assets/vectors/icons/tarot_icon.svg',
