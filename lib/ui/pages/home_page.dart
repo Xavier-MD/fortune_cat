@@ -133,6 +133,7 @@ class _HomePageState extends State<HomePage> {
                     Flexible(
                       flex: 10,
                       child: Stack(
+                        alignment: Alignment.center,
                         children: [
                           catAssetLayer(selectedBackground),
                           catAssetLayer(selectedCat),
@@ -154,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      FcSvg(
+                      const FcSvg(
                           assetName:
                               'assets/vectors/decor/quote_upper_bracket.svg'),
                       SizedBox(
@@ -168,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      FcSvg(
+                      const FcSvg(
                           assetName:
                               'assets/vectors/decor/quote_lower_bracket.svg'),
                     ],
