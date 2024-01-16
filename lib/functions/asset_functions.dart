@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:fortune_cat/models/asset_lists.dart';
 
 class AssetFunctions {
-  static double randomNumberGenerator(List<Asset> assetList, Random random) {
+  static double randomNumberGenerator(List assetList, Random random) {
     double probabilitySum = 0;
 
     for (var i = 0; i < assetList.length; i++) {
-      probabilitySum += assetList[i]['probability'];
+      probabilitySum += assetList[i].probability;
     }
     double randomNumber = random.nextDouble() * (probabilitySum);
     return randomNumber;
@@ -23,7 +23,7 @@ class AssetFunctions {
     List updatedAssetList = [];
 
     for (var i = 0; i < medianListIndex; i++) {
-      bisectedProbabilitySum += assetList[i]['probability'];
+      bisectedProbabilitySum += assetList[i].probability;
     }
 
     if (randomNumber <= bisectedProbabilitySum + pointSum) {
@@ -38,5 +38,12 @@ class AssetFunctions {
       return assetSelectorRecursion(
           randomNumber, updatedAssetList, pointSum + bisectedProbabilitySum);
     }
+  }
+
+  static String quoteSelector(List quoteList, Random random) {
+    int quoteListLength = quoteList.length;
+    dynamic randomNumber = random.nextDouble() * (quoteListLength);
+    randomNumber = randomNumber.floor();
+    return quoteList[randomNumber];
   }
 }

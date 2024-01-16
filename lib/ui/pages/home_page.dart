@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
     selectedPawAccessory = pawAccessory.imagePath;
 
     // Selecting a random quote
-    selectedQuote = assetSelector(TextLists.quoteList, random);
+    selectedQuote = AssetFunctions.quoteSelector(TextLists.quoteList, random);
   }
 
   void refreshAssets() {
