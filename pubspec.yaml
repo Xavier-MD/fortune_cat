@@ -26,8 +26,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/cats/
-    - assets/images/backgrounds/accents/
-    - assets/images/backgrounds/main/
+    - assets/images/backgrounds/
     - assets/images/accessories/eyes/
     - assets/images/accessories/head/
     - assets/images/accessories/paws/

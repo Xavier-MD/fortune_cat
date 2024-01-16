@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
+import 'package:fortune_cat/functions/asset_functions.dart';
 import 'package:fortune_cat/models/asset_lists.dart';
 import 'package:fortune_cat/models/text_lists.dart';
 import 'package:fortune_cat/ui/components/fc_svg.dart';
@@ -24,38 +25,37 @@ class _HomePageState extends State<HomePage> {
   late String selectedVibe;
   late String selectedQuote;
 
-  T selectRandom<T>(List<T> list) {
-    int randomNumber = random.nextInt(list.length);
-    return list[randomNumber];
+  assetSelector(assetList, random) {
+    double randomNumber =
+        AssetFunctions.randomNumberGenerator(assetList, random);
+    dynamic selectedAsset =
+        AssetFunctions.assetSelectorRecursion(randomNumber, assetList, 0);
+    return selectedAsset;
   }
 
   void initializeAssets() {
     // Selecting a random background asset
-    Asset backgroundAsset = selectRandom(AssetLists.backgroundList);
+    Asset backgroundAsset = assetSelector(AssetLists.backgroundList, random);
     selectedBackground = backgroundAsset.imagePath;
 
     // Selecting a random cat asset
-    Asset catAsset = selectRandom(AssetLists.catList);
+    Asset catAsset = assetSelector(AssetLists.catList, random);
     selectedCat = catAsset.imagePath;
 
     // Selecting a random eye accessory
-    Asset eyeAccessory = selectRandom(AssetLists.eyeList);
+    Asset eyeAccessory = assetSelector(AssetLists.eyeList, random);
     selectedEyeAccessory = eyeAccessory.imagePath;
 
     // Selecting a random head accessory
-    Asset headAccessory = selectRandom(AssetLists.headList);
+    Asset headAccessory = assetSelector(AssetLists.headList, random);
     selectedHeadAccessory = headAccessory.imagePath;
 
     // Selecting a random paw accessory
-    Asset pawAccessory = selectRandom(AssetLists.pawList);
+    Asset pawAccessory = assetSelector(AssetLists.pawList, random);
     selectedPawAccessory = pawAccessory.imagePath;
 
-    // Selecting a random vibe
-    Asset vibe = selectRandom(AssetLists.vibeList);
-    selectedVibe = vibe.imagePath;
-
     // Selecting a random quote
-    selectedQuote = selectRandom(TextLists.quoteList);
+    selectedQuote = assetSelector(TextLists.quoteList, random);
   }
 
   void refreshAssets() {
@@ -127,14 +127,14 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 1,
                     ),
                     Flexible(
                       flex: 10,
                       child: Stack(
                         children: [
-                          catAssetLayer(selectedVibe),
+                          catAssetLayer(selectedBackground),
                           catAssetLayer(selectedCat),
                           catAssetLayer(selectedEyeAccessory),
                           catAssetLayer(selectedHeadAccessory),
@@ -188,7 +188,7 @@ class _HomePageState extends State<HomePage> {
                       width: 10.0.w,
                       color: Colors.black,
                     ),
-                    Chip(
+                    const Chip(
                       label: Text('Home'),
                     ),
                     FcSvg(

@@ -8,7 +8,7 @@ class FcSvg extends StatelessWidget {
   final BoxFit boxFit;
   final Color? color;
 
-  FcSvg({
+  const FcSvg({
     Key? key,
     required this.assetName,
     this.width,

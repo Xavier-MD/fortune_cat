@@ -46,9 +46,9 @@ Asset assetObjectCreator(String name, String imagePath, Rarity rarity) {
 class AssetLists {
   static List<Asset> backgroundList = [
     assetObjectCreator('Blue Branches Background',
-        'assets/images/backgrounds/main/blue_branches.png', Rarity.common),
+        'assets/images/backgrounds/blue_branches.png', Rarity.common),
     assetObjectCreator('Night Sky Background',
-        'assets/images/backgrounds/main/night_sky.png', Rarity.uncommon),
+        'assets/images/backgrounds/night_sky.png', Rarity.uncommon),
     // Add more backgrounds as needed
   ];
 
@@ -79,7 +79,7 @@ class AssetLists {
   static List<Asset> eyeList = [
     assetObjectCreator(
         'Default Eyes',
-        'assets/images/backgrounds/main/transparent_canvas.png',
+        'assets/images/backgrounds/transparent_canvas.png',
         Rarity.ordinary),
     assetObjectCreator('Glasses 1',
         'assets/images/accessories/eyes/glasses_1.png', Rarity.common),
@@ -93,7 +93,7 @@ class AssetLists {
   static List<Asset> headList = [
     assetObjectCreator(
         'Default Head',
-        'assets/images/backgrounds/main/transparent_canvas.png',
+        'assets/images/backgrounds/transparent_canvas.png',
         Rarity.ordinary),
     // Add more head accessories as needed
   ];
@@ -101,7 +101,7 @@ class AssetLists {
   static List<Asset> pawList = [
     assetObjectCreator(
         'Default Paws',
-        'assets/images/backgrounds/main/transparent_canvas.png',
+        'assets/images/backgrounds/transparent_canvas.png',
         Rarity.ordinary),
     assetObjectCreator(
         'Book 1', 'assets/images/accessories/paws/book_1.png', Rarity.common),
@@ -112,21 +112,5 @@ class AssetLists {
     assetObjectCreator(
         'Food 2', 'assets/images/accessories/paws/food_2.png', Rarity.rare),
     // Add more paw accessories as needed
-  ];
-
-  static List<Asset> vibeList = [
-    assetObjectCreator(
-        'Blank Vibe',
-        'assets/images/backgrounds/main/transparent_canvas.png',
-        Rarity.ordinary),
-    assetObjectCreator('Leaves 1',
-        'assets/images/backgrounds/accents/leaves_1.png', Rarity.uncommon),
-    assetObjectCreator(
-        'Rain 1', 'assets/images/backgrounds/accents/rain_1.png', Rarity.rare),
-    assetObjectCreator('Rainbow 1',
-        'assets/images/backgrounds/accents/rainbow_1.png', Rarity.fabled),
-    assetObjectCreator('Sparkles 1',
-        'assets/images/backgrounds/accents/sparkles_1.png', Rarity.unique),
-    // Add more vibes as needed
   ];
 }
