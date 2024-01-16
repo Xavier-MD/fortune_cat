@@ -77,10 +77,8 @@ class AssetLists {
   ];
 
   static List<Asset> eyeList = [
-    assetObjectCreator(
-        'Default Eyes',
-        'assets/images/backgrounds/transparent_canvas.png',
-        Rarity.ordinary),
+    assetObjectCreator('Default Eyes',
+        'assets/images/backgrounds/transparent_canvas.png', Rarity.ordinary),
     assetObjectCreator('Glasses 1',
         'assets/images/accessories/eyes/glasses_1.png', Rarity.common),
     assetObjectCreator('Monocle 1',
@@ -91,18 +89,14 @@ class AssetLists {
   ];
 
   static List<Asset> headList = [
-    assetObjectCreator(
-        'Default Head',
-        'assets/images/backgrounds/transparent_canvas.png',
-        Rarity.ordinary),
+    assetObjectCreator('Default Head',
+        'assets/images/backgrounds/transparent_canvas.png', Rarity.ordinary),
     // Add more head accessories as needed
   ];
 
   static List<Asset> pawList = [
-    assetObjectCreator(
-        'Default Paws',
-        'assets/images/backgrounds/transparent_canvas.png',
-        Rarity.ordinary),
+    assetObjectCreator('Default Paws',
+        'assets/images/backgrounds/transparent_canvas.png', Rarity.ordinary),
     assetObjectCreator(
         'Book 1', 'assets/images/accessories/paws/book_1.png', Rarity.common),
     assetObjectCreator('Drink 1', 'assets/images/accessories/paws/drink_1.png',
